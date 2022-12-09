@@ -20,6 +20,10 @@ The CombinedGUI is the main program and can be directly ran to present a UI allo
  - Only works with images of even and square resolutions e.g. (400x400)
  - Simple flat colour images can be very prone to noise, corrupting any payloads
 
+## Corrections
+ - Note that the scaling for the maximum fourier value of the image (For a normal 24bit image) should be (column_count\*row_count\*255), not (column_count\*row_count)
+ - Axis with different dimensions can be achieved by: img_rgb = img_rgb.reshape(row_count,column_count\*3) instead of column_count, row_count and swapping row_count and column_count for each color channel of the lines red_fshift = (mag_image_r\*np.exp(1j\*phase_image_r)).reshape(row_count,column_count). There are no intrinsic reasons for the limitations, only coding errors for solely targeting square images
+
 
 ## Dependencies
 Can be installed the usual way with "pip install name"
